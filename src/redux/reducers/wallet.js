@@ -8,6 +8,11 @@ const INITIAL_STATE_WALLET = {
 
 const wallet = (state = INITIAL_STATE_WALLET, action) => {
   switch (action.type) {
+  case 'SEARCH_SUCCESS':
+    return {
+      ...state,
+      currencies: Object.keys(action.payload).filter((cr) => cr !== 'USDT'),
+    };
   default:
     return state;
   }
