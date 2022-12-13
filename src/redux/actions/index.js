@@ -10,6 +10,16 @@ export const searchSuccess = (currencies) => (
     payload: currencies,
   });
 
+export const salveInfos = (infos) => ({
+  type: 'SALVE_INFO',
+  payload: infos,
+});
+
+export const dispesasTotais = (valorTotal) => ({
+  type: 'SALVAR_DESPESAS',
+  payload: valorTotal.toFixed(2),
+});
+
 export function fetchCurrencies() {
   return async (dispatch) => {
     const response = await fetch('https://economia.awesomeapi.com.br/json/all');

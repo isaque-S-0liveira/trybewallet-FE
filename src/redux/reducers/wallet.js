@@ -13,6 +13,16 @@ const wallet = (state = INITIAL_STATE_WALLET, action) => {
       ...state,
       currencies: Object.keys(action.payload).filter((cr) => cr !== 'USDT'),
     };
+  case 'SALVE_INFO':
+    return {
+      ...state,
+      expenses: [...state.expenses, action.payload],
+    };
+  case 'SALVAR_DESPESAS':
+    return {
+      ...state,
+      valorTotal: action.payload,
+    };
   default:
     return state;
   }
