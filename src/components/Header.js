@@ -35,8 +35,10 @@ class Header extends Component {
 
     return (
       <>
-        <div>Header</div>
-        <span data-testid="email-field">{ email }</span>
+        <span data-testid="email-field">
+          Email:
+          { email }
+        </span>
         <p data-testid="total-field">{valorTotal}</p>
         <p data-testid="header-currency-field">BRL</p>
       </>
@@ -52,7 +54,7 @@ const mapStateToProps = (state) => ({
 
 Header.propTypes = {
   email: PropTypes.string.isRequired,
-  valorTotal: PropTypes.string.isRequired,
+  valorTotal: PropTypes.number.isRequired,
   dispatch: PropTypes.func.isRequired,
   expenses: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };

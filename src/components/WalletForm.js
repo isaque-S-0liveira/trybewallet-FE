@@ -54,10 +54,9 @@ class WalletForm extends Component {
     const { currencies } = this.props;
     return (
       <>
-        <div>WalletForm</div>
         <form>
           <label htmlFor="despesas">
-            Despesa
+            Despesa:
             <input
               type="number"
               data-testid="value-input"
@@ -68,7 +67,7 @@ class WalletForm extends Component {
             />
           </label>
           <label htmlFor="descrição">
-            Descrição
+            Descrição:
             <input
               type="text"
               data-testid="description-input"
