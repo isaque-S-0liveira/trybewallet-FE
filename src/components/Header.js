@@ -13,7 +13,6 @@ class Header extends Component {
     const valorTotal = expenses.reduce((acc, cur) => (
       acc + (cur.value * cur.exchangeRates[cur.currency].ask)), 0);
     dispatch(dispesasTotais(valorTotal));
-    console.log(valorTotal);
   };
 
   /*
@@ -54,7 +53,7 @@ const mapStateToProps = (state) => ({
 
 Header.propTypes = {
   email: PropTypes.string.isRequired,
-  valorTotal: PropTypes.number.isRequired,
+  valorTotal: PropTypes.string.isRequired,
   dispatch: PropTypes.func.isRequired,
   expenses: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
