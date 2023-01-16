@@ -20,6 +20,11 @@ export const dispesasTotais = (valorTotal) => ({
   payload: valorTotal.toFixed(2),
 });
 
+export const removerDespesa = (despesa) => ({
+  type: 'REMOVER_DESPESA',
+  payload: despesa,
+});
+
 export function fetchCurrencies() {
   return async (dispatch) => {
     const response = await fetch('https://economia.awesomeapi.com.br/json/all');

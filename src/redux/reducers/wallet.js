@@ -24,6 +24,11 @@ const wallet = (state = INITIAL_STATE_WALLET, action) => {
       ...state,
       valorTotal: action.payload,
     };
+  case 'REMOVER_DESPESA':
+    return {
+      ...state,
+      expenses: action.payload,
+    };
   default:
     return state;
   }

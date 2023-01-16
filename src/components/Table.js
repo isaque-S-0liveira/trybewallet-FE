@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { removerDespesa } from '../redux/actions';
 
 class Table extends Component {
+  handleClik = ({ target }) => {
+    const { expenses, dispatch } = this.props;
+    const { name } = target;
+    const lista = expenses.filter((e) => e.id !== Number(name));
+    dispatch(removerDespesa(lista));
+  };
+
   render() {
     const { expenses } = this.props;
-    console.log(expenses);
     return (
       <header>
         <table className="tabela">
@@ -33,8 +40,17 @@ class Table extends Component {
                 <td>{ (+e.exchangeRates[e.currency].ask).toFixed(2) }</td>
                 <td>{(+e.value * +e.exchangeRates[e.currency].ask).toFixed(2)}</td>
                 <td>Real</td>
-                <td>Editar</td>
-                <td>Excluir</td>
+                <td>
+                  <button
+                    data-testid="delete-btn"
+                    type="button"
+                    onClick={ this.handleClik }
+                    name={ e.id }
+                  >
+                    Excluir
+
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -58,6 +74,7 @@ Table.propTypes = {
     tag: PropTypes.string,
     exchangesRates: PropTypes.shape({}),
   })).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps)(Table);
